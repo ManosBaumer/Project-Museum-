@@ -115,7 +115,7 @@
                                 </div>
 
                                 <div class="pt-3 sm:pt-5">
-                                    <h2 class="text-xl font-semibold text-black dark:text-white">manos cast</h2>
+                                    <h2 class="text-xl font-semibold text-black dark:text-white">julian cast</h2>
 
                                     <p class="mt-4 text-sm/relaxed">
                                         type shi type shi
