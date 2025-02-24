@@ -13,8 +13,16 @@ class TourSeeder extends Seeder
     public function run(): void
     {
         DB::table('tours')->insert([
-            ['name' => 'Tour 1', 'image1' ,'amount' => 5],
-            ['name' => 'Tour 2', 'image2' ,'amount' => 3],
+            [
+                'name' => 'Tour 1',
+                 'image' => 'image1' ,
+                 'amount' => 5
+                ],
+            [
+                'name' => 'Tour 2',
+                 'image'=>'image2' ,
+                 'amount' => 3
+                ],
         ]);
     }
 }

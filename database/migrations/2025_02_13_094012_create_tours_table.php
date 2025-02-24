@@ -15,15 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
-            $table->int('amount')->comment('Amount of exhibits in the tour');
+            $table->integer('amount')->comment('Amount of exhibits in the tour');
             // $table->boolean('isfavorite');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+   
     public function down(): void
     {
         Schema::dropIfExists('tours');

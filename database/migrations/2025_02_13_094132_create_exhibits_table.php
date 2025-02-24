@@ -17,8 +17,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('artist');
             $table->date('date');
-            $table->int('location');
-          
+            $table->integer('location');
+
             $table->timestamps();
         });
     }
