@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ExhibitsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\IsAdminMiddleware;
+use App\Http\Middleware\IsEmployeeMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,7 +21,7 @@ Route::middleware('auth')->group(function () {
 
     Route::name("exhibtis.")->prefix("exhibits")->group(function () {
 
-        Route::get('/', [ExhibitsController::class, 'exhibits'])->name('index');
+        Route::get('/', [ExhibitsController::class, 'index'])->middleware(IsAdminMiddleware::class)->name('index');
 
     });
 });
