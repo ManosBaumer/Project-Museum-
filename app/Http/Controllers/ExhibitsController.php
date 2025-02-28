@@ -8,14 +8,15 @@ class ExhibitsController extends Controller
 {
     public function index()
     {
-        return view('tour/index');
+        return view('exhibit/index');
     }
 
     public function create()
     {
-        return view('tour/create');
+        return view('exhibit/create');
     }
 
+    
     public function store()
     {
 
@@ -23,7 +24,7 @@ class ExhibitsController extends Controller
 
     public function edit()
     {
-        return view('tour/edit');
+        return view('exhibit/edit');
     }
 
     public function update()
