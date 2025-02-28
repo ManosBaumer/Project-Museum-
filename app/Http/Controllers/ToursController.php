@@ -13,12 +13,12 @@ class ToursController extends Controller
 
     public function index()
     {
-        return view('tour/index');
+        return view('tour.index');
     }
 
     public function create()
     {
-        return view('tour/create');
+        return view('tour.create');
     }
 
     public function store()
@@ -28,7 +28,7 @@ class ToursController extends Controller
 
     public function edit()
     {
-        return view('tour/edit');
+        return view('tour.edit');
     }
 
     public function update()

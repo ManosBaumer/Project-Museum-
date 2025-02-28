@@ -16,7 +16,7 @@ class ExhibitsController extends Controller
         return view('exhibit/create');
     }
 
-    
+
     public function store()
     {
 
