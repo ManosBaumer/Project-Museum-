@@ -1,6 +1,6 @@
 {{-- <x-base-layout> --}}
     <div>
-        <h1>Exhibits Aanmaken</h1>
+        <h1>Create Exhibits</h1>
 
         @if ($errors->any())
             <div>
