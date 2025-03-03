@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body style="background-color: #000000; padding: 0px;">
+<body style=" background: url('/images/background.png') no-repeat center center fixed;
+            background-size: cover; padding: 0px;">
     @include('layouts.nav')
 </body>
 </html>
