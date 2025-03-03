@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ToursController extends Controller
 {
+    public function home()
+    {
+        return view('home');
+    }
+
+
     public function index()
     {
         $tours = Tour::all();
