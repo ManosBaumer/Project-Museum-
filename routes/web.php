@@ -30,22 +30,22 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/', [ToursController::class, 'index'])->middleware(IsAdminMiddleware::class)->name('index');
         Route::get('/create', [ToursController::class, 'create'])->middleware(IsAdminMiddleware::class)->name('create');
-        Route::get('/', [ToursController::class, 'store'])->middleware(IsAdminMiddleware::class)->name('store');
+        Route::post('/', [ToursController::class, 'store'])->middleware(IsAdminMiddleware::class)->name('store');
         Route::get('/edit/{tour}', [ToursController::class, 'edit'])->middleware(IsAdminMiddleware::class)->name('edit');
-        Route::get('/update/{tour}', [ToursController::class, 'update'])->middleware(IsAdminMiddleware::class)->name('update');
-        Route::get('/delete/{tour}', [ToursController::class, 'delete'])->middleware(IsAdminMiddleware::class)->name('delete');
+        Route::post('/update/{tour}', [ToursController::class, 'update'])->middleware(IsAdminMiddleware::class)->name('update');
+        Route::delete('/delete/{tour}', [ToursController::class, 'delete'])->middleware(IsAdminMiddleware::class)->name('delete');
 
     });
 
 
     Route::name("Exhibits.")->prefix("exhibits")->group(function () {
 
-        Route::get('/', [ToursController::class, 'index'])->middleware(IsAdminMiddleware::class)->name('index');
-        Route::get('/create', [ToursController::class, 'create'])->middleware(IsAdminMiddleware::class)->name('create');
-        Route::get('/', [ToursController::class, 'store'])->middleware(IsAdminMiddleware::class)->name('store');
-        Route::get('/edit/{exhibit}', [ToursController::class, 'edit'])->middleware(IsAdminMiddleware::class)->name('edit');
-        Route::get('/update/{exhibit}', [ToursController::class, 'update'])->middleware(IsAdminMiddleware::class)->name('update');
-        Route::get('/delete/{exhibit}', [ToursController::class, 'delete'])->middleware(IsAdminMiddleware::class)->name('delete');
+        Route::get('/', [ExhibitsController::class, 'index'])->middleware(IsAdminMiddleware::class)->name('index');
+        Route::get('/create', [ExhibitsController::class, 'create'])->middleware(IsAdminMiddleware::class)->name('create');
+        Route::post('/', [ExhibitsController::class, 'store'])->middleware(IsAdminMiddleware::class)->name('store');
+        Route::get('/edit/{exhibit}', [ExhibitsController::class, 'edit'])->middleware(IsAdminMiddleware::class)->name('edit');
+        Route::post('/update/{exhibit}', [ExhibitsController::class, 'update'])->middleware(IsAdminMiddleware::class)->name('update');
+        Route::delete('/delete/{exhibit}', [ExhibitsController::class, 'delete'])->middleware(IsAdminMiddleware::class)->name('delete');
 
     });
 });

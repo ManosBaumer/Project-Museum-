@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Exhibit;
+use App\Http\Requests\ExhibitRequest;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ExhibitsController extends Controller
 {
     public function index()
     {
-        return view('exhibit/index');
+        $exhibits = Exhibit::all();
+        return view('exhibit/index', compact('exhibits'));
     }
 
     public function create()
@@ -19,7 +24,10 @@ class ExhibitsController extends Controller
 
     public function store()
     {
-
+    
+        $exhibit= new Exhibit();
+     
+        return redirect('/exhibits');
     }
 
     public function edit()
