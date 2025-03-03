@@ -6,7 +6,7 @@
     
     
 
-    <a href="{{ route('user.create') }}" class="btn btn-primary mb-3">Add New Users</a>
+    <a href="{{ route('Users.create') }}" class="btn btn-primary mb-3">Add New Users</a>
 
 
     @if ($users->isEmpty())
@@ -33,11 +33,11 @@
                     
                     <td>
                            
-                        <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="btn btn-sm btn-info">Edit</a>
+                        <a href="{{ route('Users.edit', ['user' => $user->id]) }}" class="btn btn-sm btn-info">Edit</a>
                         
 
                        
-                        <form action="{{ route('user.destroy', ['user' => $user->id]) }}" method="POST" class="d-inline"
+                        <form action="{{ route('Users.delete', ['user' => $user->id]) }}" method="POST" class="d-inline"
                             onsubmit="return confirm('Are you sure that you want to delete the user?');">
                             @csrf
                             @method('DELETE')
