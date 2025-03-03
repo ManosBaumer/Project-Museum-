@@ -12,7 +12,7 @@
                     <p>Location: {{ $exhibit->location }}</p>
                         <a href="{{ route('Exhibits.edit', $exhibit->id) }}">Edit</a>
 
-                        <form action="{{ route('Exhibits.destroy', $exhibit->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this exhibit?');">
+                        <form action="{{ route('Exhibits.delete', $exhibit->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this exhibit?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit">Delete</button>
