@@ -55,10 +55,10 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/', [UsersController::class, 'index'])->middleware(IsAdminMiddleware::class)->name('index');
         Route::get('/create', [UsersController::class, 'create'])->middleware(IsAdminMiddleware::class)->name('create');
-        Route::get('/', [UsersController::class, 'store'])->middleware(IsAdminMiddleware::class)->name('store');
+        Route::post('/', [UsersController::class, 'store'])->middleware(IsAdminMiddleware::class)->name('store');
         Route::get('/edit/{user}', [UsersController::class, 'edit'])->middleware(IsAdminMiddleware::class)->name('edit');
-        Route::get('/update/{user}', [UsersController::class, 'update'])->middleware(IsAdminMiddleware::class)->name('update');
-        Route::get('/delete/{user}', [UsersController::class, 'delete'])->middleware(IsAdminMiddleware::class)->name('delete');
+        Route::post('/update/{user}', [UsersController::class, 'update'])->middleware(IsAdminMiddleware::class)->name('update');
+        Route::delete('/delete/{user}', [UsersController::class, 'delete'])->middleware(IsAdminMiddleware::class)->name('delete');
 
     });
 
