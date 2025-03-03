@@ -1,6 +1,6 @@
 
 
-<form action="/tours/update/{{$tour->id}}" method="post" class="">
+<form action="/Tours/update/{{$tour->id}}" method="post" class="">
     @csrf
 
     <div class="mb-4">
