@@ -20,20 +20,23 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
-            'is_admin' => 'required|boolean',
-        ]);
-        
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->is_admin = $request->is_admin;
-        $user->save();
-        
+        // Valideer de invoer
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|min:8|confirmed',
+        'is_admin' => 'required|boolean',
+    ]);
 
-        return redirect()->route('user.index');
+    // Maak een nieuwe gebruiker aan
+    User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password), // Versleutel het wachtwoord
+        'is_admin' => $request->is_admin,
+    ]);
+
+    return redirect()->route('Users.index')->with('success', 'User created successfully!');
     }
 
     public function edit(User $user)
