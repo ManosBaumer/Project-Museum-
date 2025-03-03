@@ -10,24 +10,19 @@
                     <p>Artist: {{ $exhibit->artist }}</p>
                     <p>Date: {{ $exhibit->date }}</p>
                     <p>Location: {{ $exhibit->location }}</p>
-                    @can('edit-exhibit', \App\Models\Exhibit::class)
-                        <a href="{{ route('exhibit.edit', $exhibit->id) }}">Edit</a>
-                    @endcan
+                        <a href="{{ route('Exhibits.edit', $exhibit->id) }}">Edit</a>
 
-                    @can('delete-exhibit', \App\Models\Exhibit::class)
-                        <form action="{{ route('exhibit.destroy', $exhibit->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this exhibit?');">
+                        <form action="{{ route('Exhibits.delete', $exhibit->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this exhibit?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit">Delete</button>
                         </form>
-                    @endcan
                 </div>
             @endforeach
         </div>
-        @can('create-exhibit', \App\Models\Exhibit::class)
             <div>
-                <a href="{{ route('exhibit.create') }}">New Exhibit</a>
+                <a href="{{ route('Exhibits.create') }}">New Exhibit</a>
             </div>
-        @endcan
+        
     </div>
 {{-- </x-base-layout> --}}
