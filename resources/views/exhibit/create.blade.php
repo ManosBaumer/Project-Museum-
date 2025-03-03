@@ -13,7 +13,7 @@
         @endif
 
         <!-- Form -->
-        <form action="{{route('exhibits.store')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('Exhibits.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div>
                 <label for="title">Title</label>
