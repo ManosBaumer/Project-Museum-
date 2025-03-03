@@ -3,6 +3,7 @@
 use App\Http\Controllers\ExhibitsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ToursController;
+use App\Http\Controllers\UsersController;
 use App\Http\Middleware\IsAdminMiddleware;
 use App\Http\Middleware\IsEmployeeMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,20 @@ Route::middleware('auth')->group(function () {
         Route::delete('/delete/{exhibit}', [ExhibitsController::class, 'delete'])->middleware(IsAdminMiddleware::class)->name('delete');
 
     });
+
+
+    Route::name("Users.")->prefix("users")->group(function () {
+
+        Route::get('/', [UsersController::class, 'index'])->middleware(IsAdminMiddleware::class)->name('index');
+        Route::get('/create', [UsersController::class, 'create'])->middleware(IsAdminMiddleware::class)->name('create');
+        Route::post('/', [UsersController::class, 'store'])->middleware(IsAdminMiddleware::class)->name('store');
+        Route::get('/edit/{user}', [UsersController::class, 'edit'])->middleware(IsAdminMiddleware::class)->name('edit');
+        Route::post('/update/{user}', [UsersController::class, 'update'])->middleware(IsAdminMiddleware::class)->name('update');
+        Route::delete('/delete/{user}', [UsersController::class, 'delete'])->middleware(IsAdminMiddleware::class)->name('delete');
+
+    });
+
+
 });
 
 require __DIR__.'/auth.php';

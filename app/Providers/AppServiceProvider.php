@@ -24,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('index-tour', function (User $user) {
             return $user->is_admin;
         });
-
+        Gate::define('index-exhibit', function (User $user) {
+            return $user->is_admin;
+        });
+        Gate::define('index-user', function (User $user) {
+            return $user->is_admin;
+        });
     }
 }

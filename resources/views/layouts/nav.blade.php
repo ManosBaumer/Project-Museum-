@@ -31,28 +31,28 @@
             <nav class="flex items-center divide-x divide-gray-200 dark:divide-white-800">
 
                 <div class="flex items-center pr-2 lg:space-x-4 lg:pr-8">
-                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/">
+                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-white hover:text-gray-700 dark:text-white dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/">
                         <span>Home</span>
                     </a>
-                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/">
+                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-white hover:text-gray-700 dark:text-white dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/">
                         <span>Tours</span>
                     </a>
-                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/landing3">
+                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-white hover:text-gray-700 dark:text-white dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/landing3">
                         <span>3D</span>
                     </a>
                     @can('index-exhibit')
-                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/exhibits">
+                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-white hover:text-gray-700 dark:text-white dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/exhibits">
                         <span>indexh</span>
                     </a>
                     @endcan
                     @can('index-tour')
-                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/tours">
+                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-white hover:text-gray-700 dark:text-white dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/tours">
                         <span>indtours</span>
                     </a>
                     @endcan
 
                     @can('index-user')
-                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/users">
+                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-white hover:text-gray-700 dark:text-white dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/users">
                         <span>indusers</span>
                     </a>
                     @endcan
