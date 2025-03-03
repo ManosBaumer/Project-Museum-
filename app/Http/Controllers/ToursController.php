@@ -2,42 +2,59 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tour;
 use Illuminate\Http\Request;
 
 class ToursController extends Controller
 {
-    public function home()
-    {
-        return view('home');
-    }
-
     public function index()
     {
-        return view('tour.index');
+        $tours = Tour::all();
+
+        return view('tour/index', compact('tours'));
     }
 
     public function create()
     {
-        return view('tour.create');
+        $tours = Tour::all();
+
+        return view('tour/create');
     }
 
     public function store()
     {
+        $tours = new Tour();
+
+        return redirect('/tours');
 
     }
 
-    public function edit()
+    public function edit($tour)
     {
-        return view('tour.edit');
+        $tour = Tour::find($tour);
+
+        return view('tour/edit', compact('tour'));
     }
 
-    public function update()
+    public function update(Request $request, $tour)
     {
+        $this->save($tour, $request);
+
+        return redirect('/tours');
+    }
+
+    public function delete($tour)
+    {
+        $tour->delete();
+        return redirect('/tours');
 
     }
 
-    public function delete()
+    public function save($tour, $request)
     {
-
+        $tour->name = $request->name;
+        $tour->image = $request->image;
+        $tour->amount = $request->amount;
+        $tour->save();
     }
 }
