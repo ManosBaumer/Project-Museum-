@@ -31,7 +31,7 @@
             <nav class="flex items-center divide-x divide-gray-200 dark:divide-white-800">
 
                 <div class="flex items-center pr-2 lg:space-x-4 lg:pr-8">
-                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-white hover:text-gray-700 dark:text-white dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/">
+                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-white hover:text-gray-700 dark:text-white dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/home">
                         <span>Home</span>
                     </a>
                     <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-white hover:text-gray-700 dark:text-white dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/">

@@ -9,14 +9,14 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('multimedia', function (Blueprint $table) {
             $table->id();
-            $table->string('video');
-            $table->string('image');
-            $table->string('qrcode'); //miss text
-            $table->string('audio');
+            $table->string('image')->nullable();
+            $table->string('video')->nullable();
+            $table->string('audio')->nullable();
+            $table->string('qrcode')->nullable();
             $table->timestamps();
         });
     }

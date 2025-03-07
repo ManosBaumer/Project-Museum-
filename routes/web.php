@@ -45,9 +45,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/create', [ExhibitsController::class, 'create'])->middleware(IsAdminMiddleware::class)->name('create');
         Route::post('/', [ExhibitsController::class, 'store'])->middleware(IsAdminMiddleware::class)->name('store');
         Route::get('/edit/{exhibit}', [ExhibitsController::class, 'edit'])->middleware(IsAdminMiddleware::class)->name('edit');
-        Route::post('/update/{exhibit}', [ExhibitsController::class, 'update'])->middleware(IsAdminMiddleware::class)->name('update');
+        Route::put('/update/{exhibit}', [ExhibitsController::class, 'update'])->middleware(IsAdminMiddleware::class)->name('update');
         Route::delete('/delete/{exhibit}', [ExhibitsController::class, 'delete'])->middleware(IsAdminMiddleware::class)->name('delete');
-
+        Route::get('/show/{exhibit}', [ExhibitsController::class, 'show'])->middleware(IsAdminMiddleware::class)->name('show');
     });
 
 

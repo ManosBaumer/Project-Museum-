@@ -15,9 +15,7 @@ class TourExhibitSeeder extends Seeder
     {
         DB::table('tour_exhibit')->insert([
             ['tour_id' => 1, 'exhibit_id' => 1],
-            ['tour_id' => 1, 'exhibit_id' => 2],
-            ['tour_id' => 2, 'exhibit_id' => 3],
-            ['tour_id' => 2, 'exhibit_id' => 4],
+           
         ]);
     }
 }

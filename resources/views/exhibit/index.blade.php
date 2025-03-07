@@ -1,28 +1,59 @@
-{{-- <x-base-layout> --}}
-    <div>
-        <h1>Exhibits</h1>
-        
-        <div>
-            @foreach ($exhibits as $exhibit)
-                <div>
-                    <p>Title: {{ $exhibit->title }}</p>
-                    <p>Description: {{ $exhibit->description }}</p>
-                    <p>Artist: {{ $exhibit->artist }}</p>
-                    <p>Date: {{ $exhibit->date }}</p>
-                    <p>Location: {{ $exhibit->location }}</p>
-                        <a href="{{ route('Exhibits.edit', $exhibit->id) }}">Edit</a>
+<body style="background-color: black; color: white;">
 
-                        <form action="{{ route('Exhibits.delete', $exhibit->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this exhibit?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Delete</button>
-                        </form>
-                </div>
-            @endforeach
-        </div>
-            <div>
-                <a href="{{ route('Exhibits.create') }}">New Exhibit</a>
-            </div>
-        
+@include('layouts.nav')
+
+
+<a href="/exhibits/create">create</a>
+
+@foreach ($exhibits as $exhibit)
+    <div>
+        <p>Title: {{ $exhibit->title }}</p>
+        <p>Description: {{ $exhibit->description }}</p>
+        <p>Artist: {{ $exhibit->artist }}</p>
+        <p>Date: {{ $exhibit->date }}</p>
+        <p>Location: {{ $exhibit->location }}</p>
+
+        @foreach ($exhibit->multimedia as $media)
+            <p>Image:
+                @if($media->image)
+                    <img src="{{ asset('storage/public/images/' . $media->image) }}" alt="Image" style="max-width: 200px;">
+                @else
+                    No image
+                @endif
+            </p>
+
+            <p>Video:
+                @if($media->video)
+                    <video src="{{ asset('storage/public/videos/' . $media->video) }}" controls style="max-width: 500px;"></video>
+                @else
+                    No video
+                @endif
+            </p>
+
+            <p>Audio:
+                @if($media->audio)
+                    <audio src="{{ asset('storage/public/audios/' . $media->audio) }}" controls></audio>
+                @else
+                    No audio
+                @endif
+            </p>
+
+            <p>QR Code:
+                @if($media->qrcode)
+                    <img src="{{ asset('storage/qrcodes/' . $media->qrcode) }}" alt="QR Code" style="max-width: 80px;">
+                @else
+                    No QR Code
+                @endif
+            </p>
+        @endforeach
+
+        <a href="{{ route('Exhibits.edit', $exhibit->id) }}">Edit</a>
+
+        <form action="{{ route('Exhibits.delete', $exhibit->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this exhibit?');">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Delete</button>
+        </form>
     </div>
-{{-- </x-base-layout> --}}
+@endforeach
+</body>
