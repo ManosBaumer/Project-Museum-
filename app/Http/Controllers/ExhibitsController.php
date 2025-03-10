@@ -69,15 +69,15 @@ class ExhibitsController extends Controller
             $multimedia->audio = basename($audioPath);
         }
 
-        // // Generate QR code with location value
-        // $qrCode = Builder::create()
-        //     ->writer(new PngWriter())
-        //     ->data($exhibit->location)
-        //     ->build();
+        // Generate QR code with location value
+        $qrCode = Builder::create()
+            ->writer(new PngWriter())
+            ->data($exhibit->location)
+            ->build();
 
-        //     $qrCodePath = 'qrcodes/' . uniqid() . '.png';
-        //     $qrCode->saveToFile(storage_path('app/public/' . $qrCodePath));
-        //     $multimedia->qrcode = basename($qrCodePath);
+            $qrCodePath = 'qrcodes/' . uniqid() . '.png';
+            $qrCode->saveToFile(storage_path('app/public/' . $qrCodePath));
+            $multimedia->qrcode = basename($qrCodePath);
 
         $multimedia->save();
         $exhibit->multimedia()->attach($multimedia->id);
