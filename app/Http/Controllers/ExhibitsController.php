@@ -51,31 +51,33 @@ class ExhibitsController extends Controller
         $multimedia = new Multimedia();
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store( 'app/public/images');
+
+            $imagePath = $request->file('image')->store('images');
             $multimedia->image = basename($imagePath);
+
         }
 
         // For video upload
         if ($request->hasFile('video')) {
-            $videoPath = $request->file('video')->store('app/public/videos');
+            $videoPath = $request->file('video')->store('videos');
             $multimedia->video = basename($videoPath);
         }
 
         // For audio upload
         if ($request->hasFile('audio')) {
-            $audioPath = $request->file('audio')->store('app/public/audios');
+            $audioPath = $request->file('audio')->store('audios');
             $multimedia->audio = basename($audioPath);
         }
 
-        // Generate QR code with location value
-        $qrCode = Builder::create()
-            ->writer(new PngWriter())
-            ->data($exhibit->location)
-            ->build();
+        // // Generate QR code with location value
+        // $qrCode = Builder::create()
+        //     ->writer(new PngWriter())
+        //     ->data($exhibit->location)
+        //     ->build();
 
-            $qrCodePath = 'qrcodes/' . uniqid() . '.png';
-            $qrCode->saveToFile(storage_path('app/public/' . $qrCodePath));
-            $multimedia->qrcode = basename($qrCodePath);
+        //     $qrCodePath = 'qrcodes/' . uniqid() . '.png';
+        //     $qrCode->saveToFile(storage_path('app/public/' . $qrCodePath));
+        //     $multimedia->qrcode = basename($qrCodePath);
 
         $multimedia->save();
         $exhibit->multimedia()->attach($multimedia->id);
