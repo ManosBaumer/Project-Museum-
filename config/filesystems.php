@@ -39,9 +39,9 @@ return [
         ],
 
         'public' => [
-            'driver' => 'local',
+            'driver' => '',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('AlocalPP_URL').'/storage',
             'visibility' => 'public',
             'throw' => false,
             'report' => false,

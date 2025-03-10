@@ -16,7 +16,7 @@
         @foreach ($exhibit->multimedia as $media)
             <p>Image:
                 @if($media->image)
-                    <img src="{{ asset('storage/public/images/' . $media->image) }}" alt="Image" style="max-width: 200px;">
+                    <img src="{{ asset('storage/app/public/images/' . $media->image) }}" alt="Image" style="max-width: 200px;">
                 @else
                     No image
                 @endif
@@ -24,7 +24,7 @@
 
             <p>Video:
                 @if($media->video)
-                    <video src="{{ asset('storage/public/videos/' . $media->video) }}" controls style="max-width: 500px;"></video>
+                    <video src="{{ asset('storage/app/public/videos/' . $media->video) }}" controls style="max-width: 500px;"></video>
                 @else
                     No video
                 @endif
@@ -32,7 +32,7 @@
 
             <p>Audio:
                 @if($media->audio)
-                    <audio src="{{ asset('storage/public/audios/' . $media->audio) }}" controls></audio>
+                    <audio src="{{ asset('storage/app/public/audios/' . $media->audio) }}" controls></audio>
                 @else
                     No audio
                 @endif

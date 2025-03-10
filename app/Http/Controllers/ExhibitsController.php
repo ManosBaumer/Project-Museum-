@@ -51,18 +51,19 @@ class ExhibitsController extends Controller
         $multimedia = new Multimedia();
 
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imagePath = $image->store('public/images');
+            $imagePath = $request->file('image')->store( 'app/public/images');
             $multimedia->image = basename($imagePath);
         }
+
+        // For video upload
         if ($request->hasFile('video')) {
-            $video = $request->file('video');// Debug the file object
-            $videoPath = $video->store('public/videos');
+            $videoPath = $request->file('video')->store('app/public/videos');
             $multimedia->video = basename($videoPath);
         }
+
+        // For audio upload
         if ($request->hasFile('audio')) {
-            $audio = $request->file('audio');
-            $audioPath = $audio->store('public/audios');
+            $audioPath = $request->file('audio')->store('app/public/audios');
             $multimedia->audio = basename($audioPath);
         }
 
@@ -72,9 +73,9 @@ class ExhibitsController extends Controller
             ->data($exhibit->location)
             ->build();
 
-        $qrCodePath = 'public/qrcodes/' . uniqid() . '.png';
-        $qrCode->saveToFile(storage_path('app/' . $qrCodePath));
-        $multimedia->qrcode = basename($qrCodePath);
+            $qrCodePath = 'qrcodes/' . uniqid() . '.png';
+            $qrCode->saveToFile(storage_path('app/public/' . $qrCodePath));
+            $multimedia->qrcode = basename($qrCodePath);
 
         $multimedia->save();
         $exhibit->multimedia()->attach($multimedia->id);
