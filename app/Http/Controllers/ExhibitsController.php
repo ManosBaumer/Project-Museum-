@@ -94,8 +94,8 @@ class ExhibitsController extends Controller
             'date' => 'required',
             'location' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'video' => 'nullable|mimes:mp4,mov,ogg,qt|max:20000',
-            'audio' => 'nullable|mimes:mp3,wav|max:10000',
+            'video' => 'nullable|mimes:mp4,mov,ogg,qt|max:51200',
+            'audio' => 'nullable|mimes:mp3,wav|max:51200',
         ]);
 
         $exhibit = Exhibit::find($id);
