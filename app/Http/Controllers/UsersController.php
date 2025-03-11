@@ -46,14 +46,24 @@ class UsersController extends Controller
 
     public function update(Request $request, User $user)
     {
+            // Valideer de invoer
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'nullable|min:8|confirmed',
             'is_admin' => 'required|boolean',
         ]);
-    
-        $user->update($request->all());
-        return redirect()->route('user.index')->with('success', 'User updated successfully.');
+
+        // Update gebruiker
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->password); // Alleen bij wijziging
+        }
+        $user->is_admin = $request->is_admin;
+        $user->save();
+
+        return redirect()->route('Users.index')->with('success', 'User updated successfully!');
     }
 
     public function delete(User $user)
