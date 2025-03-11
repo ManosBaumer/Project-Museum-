@@ -1,13 +1,16 @@
-<form action="{{ route('Users.update', $user->id) }}" method="POST">
-    @csrf
-    @method('PUT')
-
-    <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
-    </div>
-
-    <div class="mb-3">
+<body style="background-color: black; color:white;">
+    @include('layouts.nav')
+    
+    <form action="{{ route('Users.update', $user->id) }}" method="POST">
+        @csrf
+        @method('PUT')
+        
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
+        </div>
+        
+        <div class="mb-3">
         <label for="email" class="form-label">E-Mail</label>
         <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
     </div>
@@ -22,3 +25,4 @@
 
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
+</body

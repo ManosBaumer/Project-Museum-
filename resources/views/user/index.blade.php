@@ -1,6 +1,9 @@
+<body style="background-color: black; color:white;">
+    
 
+@include('layouts.nav')
 
-<div class="container">
+<div class="container" >
     <h2>Users List</h2>
     
     
@@ -51,4 +54,4 @@
         </table>
     @endif
 </div>
-
+</body>
