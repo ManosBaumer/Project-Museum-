@@ -18,7 +18,6 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>#</th>
                     <th>Id</th>
                     <th>Name</th>
                     <th>E-Mail</th>
