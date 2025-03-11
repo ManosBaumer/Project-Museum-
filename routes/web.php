@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::name("tours.")->prefix("home")->group(function () {
+    Route::name("Tours.")->prefix("home")->group(function () {
 
         Route::get('/', [ToursController::class, 'home'])->name('home');
 
@@ -57,7 +57,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/create', [UsersController::class, 'create'])->middleware(IsAdminMiddleware::class)->name('create');
         Route::post('/', [UsersController::class, 'store'])->middleware(IsAdminMiddleware::class)->name('store');
         Route::get('/edit/{user}', [UsersController::class, 'edit'])->middleware(IsAdminMiddleware::class)->name('edit');
-        Route::post('/update/{user}', [UsersController::class, 'update'])->middleware(IsAdminMiddleware::class)->name('update');
+        Route::put('/update/{user}', [UsersController::class, 'update'])->middleware(IsAdminMiddleware::class)->name('update');
         Route::delete('/delete/{user}', [UsersController::class, 'delete'])->middleware(IsAdminMiddleware::class)->name('delete');
 
     });

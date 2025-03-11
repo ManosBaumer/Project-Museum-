@@ -1,6 +1,9 @@
+<body style="background-color: black; color:white;">
+    
 
+@include('layouts.nav')
 
-<div class="container">
+<div class="container" style="padding: 50px;">
     <h2>Users List</h2>
     
     
@@ -15,7 +18,6 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>#</th>
                     <th>Id</th>
                     <th>Name</th>
                     <th>E-Mail</th>
@@ -25,7 +27,7 @@
             <tbody>
                 @foreach ($users as $user)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
@@ -51,4 +53,4 @@
         </table>
     @endif
 </div>
-
+</body>
