@@ -2,6 +2,14 @@
     @include('layouts.nav')
     
     <form action="{{ route('Users.update', $user->id) }}" method="POST">
+
+        <style>
+            input, select {
+                color: black !important;
+                background-color: white !important;
+            }
+        </style>
+
         @csrf
         @method('PUT')
         
