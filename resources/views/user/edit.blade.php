@@ -1,7 +1,8 @@
-<body style="background-color: black; color:white;">
-    @include('layouts.nav')
+@include('layouts.nav')
+<body style="background-color: black; color:white; ">
     
-    <form action="{{ route('Users.update', $user->id) }}" method="POST">
+    
+    <form action="{{ route('Users.update', $user->id) }}" method="POST" style="padding: 50px;">
 
         <style>
             input, select {

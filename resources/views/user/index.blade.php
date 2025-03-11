@@ -3,7 +3,7 @@
 
 @include('layouts.nav')
 
-<div class="container" >
+<div class="container" style="padding: 50px;">
     <h2>Users List</h2>
     
     
