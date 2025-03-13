@@ -27,6 +27,14 @@ Route::middleware('auth')->group(function () {
 
     });
 
+    Route::name("Tours.")->prefix("3D")->group(function () {
+
+        Route::get('/', [ToursController::class, '_3D'])->name('_3D');
+        Route::get('/select', [ToursController::class, 'select'])->name('select');
+
+    });
+
+
     Route::name("Tours.")->prefix("tours")->group(function () {
 
         Route::get('/', [ToursController::class, 'index'])->middleware(IsAdminMiddleware::class)->name('index');

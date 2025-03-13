@@ -37,7 +37,7 @@
                     <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-white hover:text-gray-700 dark:text-white dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/">
                         <span>Tours</span>
                     </a>
-                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-white hover:text-gray-700 dark:text-white dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/landing3">
+                    <a class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-white hover:text-gray-700 dark:text-white dark:hover:bg-gray-850 dark:hover:text-gray-200" href="/3D/select">
                         <span>3D</span>
                     </a>
                     @can('index-exhibit')
@@ -74,7 +74,7 @@
                         </span>
                     </a>
 
-                    
+
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-850 dark:hover:text-gray-200">

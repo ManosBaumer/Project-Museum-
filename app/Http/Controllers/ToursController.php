@@ -63,4 +63,14 @@ class ToursController extends Controller
         $tour->amount = $request->amount;
         $tour->save();
     }
+
+    public function select()
+    {
+        return view('3D/select');
+    }
+
+    public function _3D()
+    {
+        return view('3D/museum');
+    }
 }
