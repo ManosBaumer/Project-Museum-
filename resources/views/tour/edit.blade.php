@@ -1,6 +1,6 @@
 
 
-<form action="/Tours/update/{{$tour->id}}" method="post" class="">
+<form action="{{ route('Tours.update', $tour->id) }}" method="post" class="">
     @csrf
 
     <div class="mb-4">
@@ -8,10 +8,20 @@
         <input type="text" name="name" id="name" value="{{$tour->name}}" class="">
     </div>
 
-    {{-- <div class="mb-4">
-        <label for="image" class="">Image</label>
-        <input type="text" name="image" id="image" value="{{$tour->image}}" class="">
-    </div> --}}
+    @if($tour->multimedia->isNotEmpty() && $tour->multimedia->first()->image)
+    <div>
+        <label>Current Image:</label>
+        <img src="{{ asset('storage/images/' . $tour->multimedia->first()->image) }}" alt="Current Image" width="150">
+    </div>
+@else
+    <p>No image available for this tour.</p>
+@endif
+
+<!-- File input for updating the image -->
+    <div>
+        <label for="image">Upload a new image (if any):</label>
+        <input type="file" name="image" id="image" class="">
+    </div>
 
     <div class="mb-4">
         <label for="amount" class="">Aantal</label>

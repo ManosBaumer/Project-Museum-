@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('tours', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image');
             $table->integer('amount')->comment('Amount of exhibits in the tour');
             // $table->boolean('isfavorite');
             $table->timestamps();

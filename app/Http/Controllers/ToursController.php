@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Multimedia;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 
@@ -15,53 +16,82 @@ class ToursController extends Controller
 
     public function index()
     {
-        $tours = Tour::all();
-
+        $tours = Tour::with('multimedia')->get();
         return view('tour/index', compact('tours'));
     }
 
     public function create()
     {
-        $tours = Tour::all();
-
         return view('tour/create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $tours = new Tour();
+        $request->validate([
+            'name' => 'required',
+            'amount' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-        return redirect('/tours');
+        $tour = new Tour();
+        $tour->name = $request->name;
+        $tour->amount = $request->amount;
+        $tour->save();
 
+        $multimedia = new Multimedia();
+        
+        if ($request->hasFile('image')) {
+            
+            $imagePath = $request->file('image')->store('images');
+            $multimedia->image = basename($imagePath);
+            
+        }
+
+        $multimedia->save();
+        $tour->multimedia()->attach($multimedia->id);
+        return redirect()->route('Tours.index')->with('success', 'Tour created successfully.');
     }
 
     public function edit($tour)
     {
-        $tour = Tour::find($tour);
-
+        $tour = Tour::with('multimedia')->find($tour);
         return view('tour/edit', compact('tour'));
     }
 
     public function update(Request $request, $tour)
     {
-        $this->save($tour, $request);
 
-        return redirect('/tours');
+        $request->validate([
+            'name' => 'required',
+            'amount' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $tour = Tour::find($tour);
+        $tour->name = $request->name;
+        $tour->amount = $request->amount;
+        $tour->save();
+
+
+        $multimedia = $tour->multimedia;
+
+        if ($request->hasFile('image')) {
+            
+            $imagePath = $request->file('image')->store('images');
+            $multimedia->image = basename($imagePath);
+        }
+        
+        $multimedia = $tour->multimedia()->first(); 
+        $multimedia->save();
+        return redirect()->route('Tours.index')->with('success', 'Tour updated successfully.');
     }
 
     public function delete($tour)
     {
+        $tour = Tour::find($tour);
+        $tour->multimedia()->detach();
         $tour->delete();
-        return redirect('/tours');
-
-    }
-
-    public function save($tour, $request)
-    {
-        $tour->name = $request->name;
-        $tour->image = $request->image;
-        $tour->amount = $request->amount;
-        $tour->save();
+        return redirect()->route('Tour.index');
     }
 
     public function select()
