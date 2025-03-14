@@ -1,51 +1,47 @@
-<body style="background-color: black; color: white;">
+<body style="background-color: #121212; color: #ffffff; font-family: Arial, sans-serif; padding: 20px;">
     @include('layouts.nav')
 
-    <a href="/exhibits/create" style="color: white; text-decoration: none;">Create</a>
+    <!-- Create button with modern styling -->
+    <a href="/exhibits/create" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #007bff, #00d4ff); color: white; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s;">
+        ➕ Create Exhibit
+    </a>
 
-    <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
         @foreach ($exhibits as $exhibit)
-            <a href="{{ route('Exhibits.show', $exhibit->id) }}"
-               style="display: flex; align-items: center; padding: 10px; background-color: #222; border-radius: 5px; text-decoration: none; color: white; gap: 15px; cursor: pointer;">
-                <div>
-                    <p><strong>Title:</strong> {{ $exhibit->title }}</p>
-                    <p><strong>Description:</strong> {{ $exhibit->description }}</p>
-                    <p><strong>Artist:</strong> {{ $exhibit->artist }}</p>
-                    <p><strong>Date:</strong> {{ $exhibit->date }}</p>
-                    <p><strong>Location:</strong> {{ $exhibit->location }}</p>
+            <div style="background-color: #1e1e1e; border-radius: 12px; overflow: hidden; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); transition: transform 0.3s; cursor: pointer;">
+                <a href="{{ route('Exhibits.show', $exhibit->id) }}" style="display: block; padding: 20px; text-decoration: none; color: white;">
+                    <h2 style="margin-bottom: 10px; color: #00d4ff;">{{ $exhibit->title }}</h2>
+                    <p style="margin-bottom: 15px; color: #bbb;">by <strong>{{ $exhibit->artist }}</strong></p>
+                </a>
+
+                <!-- Multimedia section -->
+                <div style="display: flex; gap: 10px; padding: 10px; justify-content: center; background: #252525;">
+                    @if($exhibit->multimedia->isNotEmpty())
+                        @foreach ($exhibit->multimedia as $media)
+                            @if($media->image)
+                                <img src="{{ asset('images/' . $media->image) }}" alt="Image" style="max-height: 120px; border-radius: 6px;">
+                            @endif
+                            @if($media->video)
+                                <video src="{{ asset('videos/' . $media->video) }}" controls style="max-height: 120px; border-radius: 6px;"></video>
+                            @endif
+                            @if($media->audio)
+                                <audio src="{{ asset('audios/' . $media->audio) }}" controls></audio>
+                            @endif
+                        @endforeach
+                    @endif
                 </div>
 
-                @foreach ($exhibit->multimedia as $media)
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        @if($media->image)
-                            <img src="{{ asset('images/' . $media->image) }}" alt="Image" style="max-height: 100px; max-width: 150px;">
-                        @endif
-
-                        @if($media->video)
-                            <video src="{{ asset('videos/' . $media->video) }}" controls style="max-height: 100px; max-width: 150px;"></video>
-                        @endif
-
-                        @if($media->audio)
-                            <audio src="{{ asset('audios/' . $media->audio) }}" controls></audio>
-                        @endif
-
-                        @if($media->qrcode)
-                            <img src="{{ asset('qrcodes/' . $media->qrcode) }}" alt="QR Code" style="max-height: 50px; max-width: 50px;">
-                        @endif
-                    </div>
-
-
-                    <a href="{{ route('Exhibits.edit', $exhibit->id) }}" style=" width: 65px; padding: 5px 10px; background-color: #007bff; color: white; border-radius: 3px; text-decoration: none;">Edit</a>
-
+                <!-- Action buttons -->
+                <div style="display: flex; justify-content: space-between; padding: 15px; background: #181818; border-top: 1px solid #333;">
+                    <a href="{{ route('Exhibits.edit', $exhibit->id) }}" style="padding: 8px 15px; background: #007bff; color: white; border-radius: 6px; text-decoration: none; font-weight: bold;">✏️ Edit</a>
+                    
                     <form action="{{ route('Exhibits.delete', $exhibit->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this exhibit?');">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" style="padding: 5px 10px; background-color: #dc3545; color: white; border: none; border-radius: 3px; cursor: pointer;">Delete</button>
+                        <button type="submit" style="padding: 8px 15px; background: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">🗑️ Delete</button>
                     </form>
-
-                @endforeach
-
-            </a>
+                </div>
+            </div>
         @endforeach
     </div>
 </body>
