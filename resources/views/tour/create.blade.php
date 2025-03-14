@@ -1,7 +1,7 @@
 
 
 
-<form action="{{ route('Tours.store')}}" method="post" class="">
+<form action="{{ route('Tours.store')}}" method="post" enctype="multipart/form-data">
 
     @csrf
     <div class="mb-4">
@@ -9,10 +9,10 @@
         <input type="text" name="name" id="name" class="">
     </div>
 
-    {{-- <div class="mb-4">
-        <label for="image" class="">Image</label>
-        <input type="text" name="image" id="image" class="">
-    </div> --}}
+    <div class="mb-4">
+        <label for="image" class="">Image(Optional)</label>
+        <input type="file" name="image" id="image" class="">
+    </div>
 
     <div class="mb-4">
         <label for="amount" class="">Aantal</label>

@@ -4,8 +4,17 @@
 @foreach ($tours as $tour)
 <div>
     <p class="">{{ $tour->name }}</p>
-    <p class="">{{ $tour->image }}</p>
     <p class="">{{ $tour->amount }}</p>
+
+    @foreach ($tour->multimedia as $media)
+    <p>Image:
+        @if($media->image)
+            <img src="{{ asset('images/' . $media->image) }}" alt="Image" style="max-width: 200px;">
+        @else
+            No image
+        @endif
+    </p>
+    @endforeach
 </div>
 
 {{-- edit button --}}
