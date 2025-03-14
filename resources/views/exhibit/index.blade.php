@@ -6,7 +6,7 @@
         ➕ Create Exhibit
     </a>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px;">
         @foreach ($exhibits as $exhibit)
             <div style="background-color: #1e1e1e; border-radius: 12px; overflow: hidden; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); transition: transform 0.3s; cursor: pointer;">
                 <a href="{{ route('Exhibits.show', $exhibit->id) }}" style="display: block; padding: 20px; text-decoration: none; color: white;">
