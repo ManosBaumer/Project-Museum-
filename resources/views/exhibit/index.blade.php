@@ -18,6 +18,16 @@
                         @endforeach
                     @endif
                 </div>
+                <!-- Action buttons -->
+                <div style="display: flex; justify-content: space-between; padding: 15px; background: #181a21; border-top: 1px solid #333;">
+                    <a href="{{ route('Exhibits.edit', $exhibit->id) }}" style="padding: 8px 15px; background: #007bff; color: white; border-radius: 6px; text-decoration: none; font-weight: bold; height:40px;">✏️ Edit</a>
+
+                    <form action="{{ route('Exhibits.delete', $exhibit->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this exhibit?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" style="padding: 8px 15px; background: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; height:40px;">🗑️ Delete</button>
+                    </form>
+                </div>
             </div>
         @endforeach
     </div>
