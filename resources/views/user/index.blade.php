@@ -1,7 +1,7 @@
-<body style="background-color: black; color:white;">
+@include('layouts.nav')
+<body style="background-color: #232630; color: #ffffff; font-family: Arial, sans-serif; ">
     
 
-@include('layouts.nav')
 
 <div class="container" style="padding: 50px;">
     <h2>Users List</h2>
