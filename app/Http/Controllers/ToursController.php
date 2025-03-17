@@ -25,6 +25,7 @@ class ToursController extends Controller
     {
         $exhibits = Multimedia::all();
 
+        //bhb
         return view('tour/create', compact('exhibits'));
     }
 
