@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Exhibit;
 use App\Models\Multimedia;
 use App\Models\Tour;
 use Illuminate\Http\Request;
@@ -22,7 +23,9 @@ class ToursController extends Controller
 
     public function create()
     {
-        return view('tour/create');
+        $exhibits = Multimedia::all();
+
+        return view('tour/create', compact('exhibits'));
     }
 
     public function store(Request $request)
@@ -91,7 +94,7 @@ class ToursController extends Controller
         $tour = Tour::find($tour);
         $tour->multimedia()->detach();
         $tour->delete();
-        return redirect()->route('Tour.index');
+        return redirect()->route('Tours.index');
     }
 
     public function select()

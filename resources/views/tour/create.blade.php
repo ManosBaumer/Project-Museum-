@@ -19,6 +19,16 @@
         <input type="text" name="amount" id="amount" class="">
     </div>
 
+    <div>
+        <label for="exhibit" class="">Exhibits</label>
+        @foreach ($exhibits as $exhibit)
+        <li>
+            <label for="exhibit" class="">{{ $exhibit->title }}</label>
+            <input type="checkbox" name="exhibit" value="{{$exhibit->id}}" id="exhibit" class="">
+        </li>
+        @endforeach
+    </div>
+
     <button type="submit" class="w-full py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
         Toevoegen
     </button>
