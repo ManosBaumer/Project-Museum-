@@ -1,39 +1,45 @@
-<div class="container">
-    <h1>Create Exhibit</h1>
-    <form action="{{ route('Exhibits.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" name="title" required>
-        </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea class="form-control" id="description" name="description" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="artist">Artist</label>
-            <input type="text" class="form-control" id="artist" name="artist" required>
-        </div>
-        <div class="form-group">
-            <label for="date">Date</label>
-            <input type="date" class="form-control" id="date" name="date" required>
-        </div>
-        <div class="form-group">
-            <label for="location">Location</label>
-            <input type="text" class="form-control" id="location" name="location" required>
-        </div>
-        <div class="form-group">
-            <label for="image">Image (Optional)</label>
-            <input type="file" class="form-control" id="image" name="image" accept="image/*">
-        </div>
-        <div class="form-group">
-            <label for="video">Video (Optional)</label>
-            <input type="file" class="form-control" id="video" name="video" accept="video/*">
-        </div>
-        <div class="form-group">
-            <label for="audio">Audio (Optional)</label>
-            <input type="file" class="form-control" id="audio" name="audio" accept="audio/*">
-        </div>
-        <button type="submit" class="btn btn-primary">Create Exhibit</button>
-    </form>
-</div>
+<body style="background-color: #232630; color: #ffffff; font-family: Arial, sans-serif; ">
+    @include('layouts.nav')
+
+    <div style="max-width: 600px; margin: 50px auto; background-color: #181a21; padding: 30px; border-radius: 12px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);">
+        <h1 style="text-align: center; color: #00d4ff;">Create Exhibit</h1>
+        <form action="{{ route('Exhibits.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div style="margin-bottom: 15px;">
+                <label for="title" style="display: block; font-weight: bold;">Title</label>
+                <input type="text" id="title" name="title" required style="width: 100%; padding: 10px; border-radius: 6px; border: none; background: #272830; color: white;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="description" style="display: block; font-weight: bold;">Description</label>
+                <textarea id="description" name="description" required style="width: 100%; padding: 10px; border-radius: 6px; border: none; background: #272830; color: white;"></textarea>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="artist" style="display: block; font-weight: bold;">Artist</label>
+                <input type="text" id="artist" name="artist" required style="width: 100%; padding: 10px; border-radius: 6px; border: none; background: #272830; color: white;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="date" style="display: block; font-weight: bold;">Date</label>
+                <input type="date" id="date" name="date" required style="width: 100%; padding: 10px; border-radius: 6px; border: none; background: #272830; color: white;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="location" style="display: block; font-weight: bold;">Location</label>
+                <input type="text" id="location" name="location" required style="width: 100%; padding: 10px; border-radius: 6px; border: none; background: #272830; color: white;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="image" style="display: block; font-weight: bold;">Image (Optional)</label>
+                <input type="file" id="image" name="image" accept="image/*" style="width: 100%; padding: 10px; border-radius: 6px; border: none; background: #272830; color: white;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="video" style="display: block; font-weight: bold;">Video (Optional)</label>
+                <input type="file" id="video" name="video" accept="video/*" style="width: 100%; padding: 10px; border-radius: 6px; border: none; background: #272830; color: white;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="audio" style="display: block; font-weight: bold;">Audio (Optional)</label>
+                <input type="file" id="audio" name="audio" accept="audio/*" style="width: 100%; padding: 10px; border-radius: 6px; border: none; background: #272830; color: white;">
+            </div>
+            <button type="submit" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #007bff, #00d4ff); color: white; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s;">
+                ➕ Create Exhibit
+            </button>
+        </form>
+    </div>
+</body>
