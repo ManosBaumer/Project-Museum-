@@ -10,10 +10,17 @@
                 <div style="display: block; padding: 20px; text-decoration: none; color: white;">
                     <h2 style="margin-bottom: 10px; color: #00d4ff;">{{ $exhibit->title }}</h2>
                     <p style="margin-bottom: 15px; color: #bbb;">by <strong>{{ $exhibit->artist }}</strong></p>
+
+                    <!-- Check if the exhibit has multimedia -->
                     @if($exhibit->multimedia->isNotEmpty())
                         @foreach ($exhibit->multimedia as $media)
                             @if($media->image)
                                 <img src="{{ asset('images/' . $media->image) }}" alt="Image" style="max-height: 120px; border-radius: 6px; display: block; margin-top: 10px;">
+                            @elseif($media->video)
+                                <video controls style="max-height: 120px; border-radius: 6px; display: block; margin-top: 10px;">
+                                    <source src="{{ asset('videos/' . $media->video) }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
                             @endif
                         @endforeach
                     @endif
