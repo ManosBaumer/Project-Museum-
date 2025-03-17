@@ -36,7 +36,7 @@
 </div>
 @endforeach
 
- {{-- create button --}}
+ {{-- create buttonnnn --}}
 <div class="mt-8 text-center">
     <a href="{{ route('Tours.create') }}" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
         Maak een nieuwe tour

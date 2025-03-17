@@ -17,7 +17,7 @@
     <p>No image available for this tour.</p>
 @endif
 
-<!-- File input for updating the image -->
+<!-- File input for updating the images -->
     <div>
         <label for="image">Upload a new image (if any):</label>
         <input type="file" name="image" id="image" class="">

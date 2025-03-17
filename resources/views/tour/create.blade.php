@@ -24,6 +24,7 @@
         @foreach ($exhibits as $exhibit)
         <li>
             <label for="exhibit" class="">{{ $exhibit->title }}</label>
+            <input type="hidden" name="exhibit" value="{{$exhibit->id}}">
             <input type="checkbox" name="exhibit" value="{{$exhibit->id}}" id="exhibit" class="">
         </li>
         @endforeach
